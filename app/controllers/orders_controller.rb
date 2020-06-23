@@ -4,13 +4,17 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @order = Order.new
   end
 
   def create
     #render plain: params[:order].inspect
     @order = Order.new(order_params)
-    @order.save
-    redirect_to @order
+    if @order.save
+      redirect_to @order
+    else
+      render 'new'
+    end
   end
 
   def show
