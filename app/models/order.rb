@@ -1,3 +1,4 @@
 class Order < ApplicationRecord
-  validates :title, presence: true, length: {minimum: 5}
+  belongs_to :product
+  #validates :title, presence: true, length: {minimum: 5}
 end
